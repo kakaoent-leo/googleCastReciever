@@ -202,10 +202,13 @@ playerManager.setMessageInterceptor(
             );
             loadRequestData.media.contentUrl = source;
             let metadata = new cast.framework.messages.GenericMediaMetadata();
-            metadata.title = "leoTest";
-            metadata.subTitle = "leoSubtitle";
+            metadata.images = url("res/symbol.png");
+            metadata.releaseDate = "releaseDate";
+            metadata.releaseYear = "releaseYear";
+            metadata.title = "title";
+            metadata.subtitle = "subtitle";
             loadRequestData.media.metadata = metadata;
-            loadRequestData.autoPlay = false;
+            loadRequestData.autoplay = false;
 
             return loadRequestData;
           } else {
