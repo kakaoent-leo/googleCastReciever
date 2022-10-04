@@ -202,7 +202,7 @@ playerManager.setMessageInterceptor(
             );
             loadRequestData.media.contentUrl = source;
             let metadata = new cast.framework.messages.GenericMediaMetadata();
-            metadata.images = url("res/symbol.png");
+            metadata.images = [url("res/symbol.png")];
             metadata.releaseDate = "releaseDate";
             metadata.releaseYear = "releaseYear";
             metadata.title = "title";
