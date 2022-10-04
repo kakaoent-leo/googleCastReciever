@@ -232,22 +232,22 @@ const controls = cast.framework.ui.Controls.getInstance();
 controls.clearDefaultSlotAssignments();
 
 // Assign buttons to control slots.
-controls.assignButton(
-  cast.framework.ui.ControlsSlot.SLOT_SECONDARY_1,
-  cast.framework.ui.ControlsButton.QUEUE_PREV
-);
-controls.assignButton(
-  cast.framework.ui.ControlsSlot.SLOT_PRIMARY_1,
-  cast.framework.ui.ControlsButton.CAPTIONS
-);
-controls.assignButton(
-  cast.framework.ui.ControlsSlot.SLOT_PRIMARY_2,
-  cast.framework.ui.ControlsButton.SEEK_FORWARD_15
-);
-controls.assignButton(
-  cast.framework.ui.ControlsSlot.SLOT_SECONDARY_2,
-  cast.framework.ui.ControlsButton.QUEUE_NEXT
-);
+// controls.assignButton(
+//   cast.framework.ui.ControlsSlot.SLOT_SECONDARY_1,
+//   cast.framework.ui.ControlsButton.QUEUE_PREV
+// );
+// controls.assignButton(
+//   cast.framework.ui.ControlsSlot.SLOT_PRIMARY_1,
+//   cast.framework.ui.ControlsButton.CAPTIONS
+// );
+// controls.assignButton(
+//   cast.framework.ui.ControlsSlot.SLOT_PRIMARY_2,
+//   cast.framework.ui.ControlsButton.SEEK_FORWARD_15
+// );
+// controls.assignButton(
+//   cast.framework.ui.ControlsSlot.SLOT_SECONDARY_2,
+//   cast.framework.ui.ControlsButton.QUEUE_NEXT
+// );
 
 /*
  * Configure the CastReceiverOptions.
@@ -282,5 +282,32 @@ castReceiverOptions.supportedCommands =
 // castReceiverOptions.queue = new CastQueue();
 
 //customization
+
+const playerData = {};
+const playerDataBinder = new cast.framework.ui.PlayerDataBinder(playerData);
+
+playerDataBinder.addEventListener(
+  cast.framework.ui.PlayerDataEventType.STATE_CHANGED,
+  (e) => {
+    switch (e.value) {
+      case cast.framework.ui.State.LAUNCHING:
+      case cast.framework.ui.State.IDLE:
+        // Write your own event handling code
+        break;
+      case cast.framework.ui.State.LOADING:
+        // Write your own event handling code
+        break;
+      case cast.framework.ui.State.BUFFERING:
+        // Write your own event handling code
+        break;
+      case cast.framework.ui.State.PAUSED:
+        // Write your own event handling code
+        break;
+      case cast.framework.ui.State.PLAYING:
+        // Write your own event handling code
+        break;
+    }
+  }
+);
 
 context.start(castReceiverOptions);
