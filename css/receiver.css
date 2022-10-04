@@ -14,9 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-/* body {
+body {
   --playback-logo-image: url("res/symbol.png");
-} */
+}
 
 cast-media-player {
   --theme-hue: 180;
