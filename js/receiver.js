@@ -201,6 +201,11 @@ playerManager.setMessageInterceptor(
               "Interceptor received full URL"
             );
             loadRequestData.media.contentUrl = source;
+            let metadata = new cast.framework.messages.GenericMediaMetadata();
+            metadata.title = "leoTest";
+            loadRequestData.media.metadata = metadata;
+            loadRequestData.autoPlay = false;
+
             return loadRequestData;
           } else {
             // Fetch the contentUrl if provided an ID or entity URL.
@@ -283,10 +288,7 @@ castReceiverOptions.supportedCommands =
 
 //customization
 
-const playerData = {
-  displayStatus: true,
-  title: "leoTest",
-};
+const playerData = {};
 const playerDataBinder = new cast.framework.ui.PlayerDataBinder(playerData);
 
 playerDataBinder.addEventListener(
