@@ -202,11 +202,13 @@ playerManager.setMessageInterceptor(
             );
             loadRequestData.media.contentUrl = source;
             let metadata = new cast.framework.messages.GenericMediaMetadata();
-            metadata.images = [url("res/symbol.png")];
+            metadata.images = [
+              new cast.framework.messages.Image("res/symbol.png"),
+            ];
             metadata.releaseDate = "releaseDate";
-            metadata.releaseYear = "releaseYear";
-            metadata.title = "title";
+            metadata.releaseYear = 2022;
             metadata.subtitle = "subtitle";
+            metadata.title = "title";
             loadRequestData.media.metadata = metadata;
             loadRequestData.autoplay = false;
 
