@@ -203,6 +203,7 @@ playerManager.setMessageInterceptor(
             loadRequestData.media.contentUrl = source;
             let metadata = new cast.framework.messages.GenericMediaMetadata();
             metadata.title = "leoTest";
+            metadata.subTitle = "leoSubtitle";
             loadRequestData.media.metadata = metadata;
             loadRequestData.autoPlay = false;
 
