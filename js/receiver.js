@@ -281,4 +281,12 @@ castReceiverOptions.supportedCommands =
  */
 // castReceiverOptions.queue = new CastQueue();
 
+//customization
+
+let playerElement = document.getElementsByTagName("cast-media-player")[0];
+playerElement.style.setProperty(
+  "--splash-image",
+  'url("res/background_1920.png")'
+);
+
 context.start(castReceiverOptions);
