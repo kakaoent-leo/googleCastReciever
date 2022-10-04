@@ -21,7 +21,7 @@ limitations under the License.
 cast-media-player {
   --theme-hue: 180;
   --background-color: rgb(0, 0, 0);
-  --logo-image: url("res/logo_kakaopage");
+  --logo-image: url("res/logo_kakaopage.png");
   --progress-color: rgb(141, 8, 13);
   --splash-image: url("res/background_kakaopage.png");
   --splash-size: cover;
