@@ -283,7 +283,10 @@ castReceiverOptions.supportedCommands =
 
 //customization
 
-const playerData = {};
+const playerData = {
+  displayStatus: true,
+  title: "leoTest",
+};
 const playerDataBinder = new cast.framework.ui.PlayerDataBinder(playerData);
 
 playerDataBinder.addEventListener(
