@@ -200,16 +200,16 @@ playerManager.setMessageInterceptor(
               "Interceptor received full URL"
             );
             loadRequestData.media.contentUrl = source;
-            let metadata = new cast.framework.messages.GenericMediaMetadata();
-            metadata.images = [
-              new cast.framework.messages.Image("res/symbol.png"),
-            ];
-            //metadata.releaseDate = "releaseDate";
-            //metadata.releaseYear = 2022;
-            metadata.subtitle = "subtitle";
-            metadata.title = "title";
-            loadRequestData.media.metadata = metadata;
-            loadRequestData.autoplay = false;
+            // let metadata = new cast.framework.messages.GenericMediaMetadata();
+            // metadata.images = [
+            //   new cast.framework.messages.Image("res/symbol.png"),
+            // ];
+            // //metadata.releaseDate = "releaseDate";
+            // //metadata.releaseYear = 2022;
+            // metadata.subtitle = "subtitle";
+            // metadata.title = "title";
+            // loadRequestData.media.metadata = metadata;
+            // loadRequestData.autoplay = false;
 
             // loadRequestData.media.hlsSegmentFormat =
             //   cast.framework.messages.HlsSegmentFormat.TS;
@@ -326,3 +326,50 @@ playerDataBinder.addEventListener(
 );
 
 context.start(castReceiverOptions);
+
+// loadRequestData :{
+//   autoplay,
+//   currentTime,
+//   media : {
+//     contentId
+//     contentUrl
+//     hlsSegmentFormat :"AAC" | "AC3" |'MP3'
+//     hlsVideoSegmentFormat : "MPEG2_TS" , "FMP4"
+//     mediaCategory : 'AUDIO', 'VIDEO', 'IMAGE'
+//     streamType : 'BUFFERED', 'LIVE'
+//     metadata : {
+//       metadataType : 'GENERIC', 'MOVIE' ...
+//       posterUrl
+
+//       queueItemId,
+//       sectionDuration,
+//       sectionStartAbsoluteTime,
+//       sectionStartTimeInContainer,
+//       sectionStartTimeInMedia,
+//     }
+
+//     entity
+//     contentType
+//     breakClips
+//     breaks
+//     customData
+//     duration
+//     startAbsoluteTime
+//     textTrackStyle
+//     tracks
+//     userActionStates
+//     vmapAdsRequest
+//   }
+
+//   loadOptions,
+//   activeTrackIds,
+//   credentials,
+//   credentialsType,
+//   customData,
+//   mediaSessionId,
+//   playbackRate,
+//   queueData,
+//   requestId,
+//   sequenceNumber,
+
+// }
