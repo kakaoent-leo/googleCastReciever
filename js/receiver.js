@@ -264,7 +264,7 @@ controls.clearDefaultSlotAssignments();
  */
 const castReceiverOptions = new cast.framework.CastReceiverOptions();
 
-castReceiverOptions.disableIdleTimeout = false;
+//castReceiverOptions.disableIdleTimeout = false;
 
 /*
  * Set the player configuration.
