@@ -44,7 +44,6 @@ const ID_REGEX = "/?([^/]+)/?$";
  */
 const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
 const LOG_RECEIVER_TAG = "Receiver";
-
 /*
  * WARNING: Make sure to turn off debug logger for production release as it
  * may expose details of your app.
@@ -205,8 +204,8 @@ playerManager.setMessageInterceptor(
             metadata.images = [
               new cast.framework.messages.Image("res/symbol.png"),
             ];
-            metadata.releaseDate = "releaseDate";
-            metadata.releaseYear = 2022;
+            //metadata.releaseDate = "releaseDate";
+            //metadata.releaseYear = 2022;
             metadata.subtitle = "subtitle";
             metadata.title = "title";
             loadRequestData.media.metadata = metadata;
@@ -264,6 +263,8 @@ controls.clearDefaultSlotAssignments();
  * Configure the CastReceiverOptions.
  */
 const castReceiverOptions = new cast.framework.CastReceiverOptions();
+
+castReceiverOptions.disableIdleTimeout = false;
 
 /*
  * Set the player configuration.
