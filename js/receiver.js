@@ -200,6 +200,13 @@ playerManager.setMessageInterceptor(
               "Interceptor received full URL"
             );
             loadRequestData.media.contentUrl = source;
+
+            loadRequestData.media.contentType = "application/x-mpegurl";
+            loadRequestData.media.hlsSegmentFormat =
+              cast.framework.messages.HlsSegmentFormat.TS;
+            loadRequestData.media.hlsVideoSegmentFormat =
+              cast.framework.messages.HlsVideoSegmentFormat.MPEG2_TS;
+
             // let metadata = new cast.framework.messages.GenericMediaMetadata();
             // metadata.images = [
             //   new cast.framework.messages.Image("res/symbol.png"),
