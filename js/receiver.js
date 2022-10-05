@@ -209,7 +209,7 @@ playerManager.setMessageInterceptor(
             metadata.subtitle = "subtitle";
             metadata.title = "title";
             loadRequestData.media.metadata = metadata;
-            loadRequestData.media.loadRequestData.autoplay = false;
+            loadRequestData.autoplay = false;
 
             // loadRequestData.media.hlsSegmentFormat =
             //   cast.framework.messages.HlsSegmentFormat.TS;
