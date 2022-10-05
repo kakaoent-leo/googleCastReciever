@@ -32,6 +32,9 @@ cast-media-player {
 
   --splash-image: url("res/logo_kakaopage.png");
   --splash-size: 10%;
+
+  --poster-image: url("res/logo_kakaopage.png");
+  --poster-size: 10%;
 }
 
 /* --background-image: url("res/background_1920.png"); */
