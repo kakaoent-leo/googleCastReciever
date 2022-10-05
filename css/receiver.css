@@ -18,42 +18,24 @@ limitations under the License.
   --playback-logo-image: url("res/logo_kakaopage.png");
 } */
 
-/* cast-media-player {
-  --theme-hue: 180;
-  --background-color: rgb(0, 0, 0);
-  --background-image: url("res/background_kakaopage.png");
-  --logo-image: url("res/logo_kakaopage.png");
-  --progress-color: rgb(141, 8, 13);
-  --splash-image: url("res/background_kakaopage.png");
-  --splash-size: cover;
-} */
-
-.background {
-  background-color: rgb(0, 0, 0);
-  background-image: url("res/logo_kakaopage.png");
-  background-size: 10%;
-}
-
-.logo {
-  background-image: url("res/logo_kakaopage.png");
-  width: 10%;
-}
-
-.progressBar {
-  background-color: rgb(141, 8, 13);
-}
-
-.splash {
-  background-image: url(res/logo_kakaopage.png);
-  size: cover;
-  width: 10%;
-}
-
 cast-media-player {
   --theme-hue: 180;
 
-  /* --background-image: url("res/background_1920.png"); */
-  /* --logo-image: url("res/symbol.png");
+  --background-color: rgb(0, 0, 0);
+  --background-image: url("res/logo_kakaopage.png");
+  --background-size: 10%;
+
+  --logo-image: url("res/logo_kakaopage.png");
+  --logo-size: 10%;
+
+  --progress-color: rgb(141, 8, 13);
+
+  --splash-image: url("res/logo_kakaopage.png");
+  --splash-size: 10%;
+}
+
+/* --background-image: url("res/background_1920.png"); */
+/* --logo-image: url("res/symbol.png");
   --slideshow-interval: 8;
   --slideshow-animation: 3;
   --slideshow-image-1: url("res/background_1920.png");
@@ -66,7 +48,6 @@ cast-media-player {
   --slideshow-image-8: url("res/home-1.jpg");
   --slideshow-image-9: url("res/home-2.jpg");
   --slideshow-image-10: url("res/mini-1.jpg"); */
-}
 
 /* ------------------------------------------------- */
 /* Sample Overlay Text                               */

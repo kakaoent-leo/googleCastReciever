@@ -211,8 +211,8 @@ playerManager.setMessageInterceptor(
             loadRequestData.media.metadata = metadata;
             loadRequestData.media.loadRequestData.autoplay = false;
 
-            loadRequestData.media.hlsSegmentFormat =
-              cast.framework.messages.HlsSegmentFormat.TS;
+            // loadRequestData.media.hlsSegmentFormat =
+            //   cast.framework.messages.HlsSegmentFormat.TS;
 
             return loadRequestData;
           } else {
