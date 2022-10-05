@@ -14,11 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-body {
+/* body {
   --playback-logo-image: url("res/logo_kakaopage.png");
-}
+} */
 
-cast-media-player {
+/* cast-media-player {
   --theme-hue: 180;
   --background-color: rgb(0, 0, 0);
   --background-image: url("res/background_kakaopage.png");
@@ -26,6 +26,32 @@ cast-media-player {
   --progress-color: rgb(141, 8, 13);
   --splash-image: url("res/background_kakaopage.png");
   --splash-size: cover;
+} */
+
+.background {
+  background-color: rgb(0, 0, 0);
+  background-image: url("res/logo_kakaopage.png");
+  background-size: 10%;
+}
+
+.logo {
+  background-image: url("res/logo_kakaopage.png");
+  width: 10%;
+}
+
+.progressBar {
+  background-color: rgb(141, 8, 13);
+}
+
+.splash {
+  background-image: url(res/logo_kakaopage.png);
+  size: cover;
+  width: 10%;
+}
+
+cast-media-player {
+  --theme-hue: 180;
+
   /* --background-image: url("res/background_1920.png"); */
   /* --logo-image: url("res/symbol.png");
   --slideshow-interval: 8;
