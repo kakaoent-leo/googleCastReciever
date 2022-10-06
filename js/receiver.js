@@ -200,6 +200,14 @@ playerManager.setMessageInterceptor(
               "Interceptor received full URL"
             );
             loadRequestData.media.contentUrl = source;
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              "-->>>>" + cast.framework.messages.HlsSegmentFormat.FMP4
+            );
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              "-->>>>" + cast.framework.messages.HlsVideoSegmentFormat.FMP4
+            );
 
             // loadRequestData.media.contentType = "application/x-mpegurl";
             // loadRequestData.media.hlsSegmentFormat =
