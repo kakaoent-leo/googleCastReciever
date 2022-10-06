@@ -202,11 +202,21 @@ playerManager.setMessageInterceptor(
             loadRequestData.media.contentUrl = source;
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
-              "-->>>>" + cast.framework.messages.HlsSegmentFormat.FMP4
+              "-->" +
+                cast.framework.messages.HlsSegmentFormat.AAC +
+                cast.framework.messages.HlsSegmentFormat.AC3 +
+                cast.framework.messages.HlsSegmentFormat.MP3 +
+                cast.framework.messages.HlsSegmentFormat.TS +
+                cast.framework.messages.HlsSegmentFormat.TS_AAC +
+                cast.framework.messages.HlsSegmentFormat.TS_HE_AAC +
+                cast.framework.messages.HlsSegmentFormat.E_AC3 +
+                cast.framework.messages.HlsSegmentFormat.FMP4
             );
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
-              "-->>>>" + cast.framework.messages.HlsVideoSegmentFormat.FMP4
+              "-->>>>" +
+                cast.framework.messages.HlsVideoSegmentFormat.MPEG2_TS +
+                cast.framework.messages.HlsVideoSegmentFormat.FMP4
             );
 
             // loadRequestData.media.contentType = "application/x-mpegurl";
