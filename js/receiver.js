@@ -201,6 +201,11 @@ playerManager.setMessageInterceptor(
             );
             loadRequestData.media.contentUrl = source;
 
+            loadRequestData.media.contentType = "application/x-mpegurl";
+            loadRequestData.media.hlsSegmentFormat =
+              cast.framework.messages.HlsSegmentFormat.FMP4;
+            loadRequestData.media.hlsVideoSegmentFormat =
+              cast.framework.messages.HlsVideoSegmentFormat.FMP4;
             // loadRequestData.media.contentType = "application/x-mpegurl";
             // loadRequestData.media.hlsSegmentFormat =
             //   cast.framework.messages.HlsSegmentFormat.TS;
