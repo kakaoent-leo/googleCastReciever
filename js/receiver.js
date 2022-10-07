@@ -201,9 +201,20 @@ playerManager.setMessageInterceptor(
             );
             loadRequestData.media.contentUrl = source;
 
-            loadRequestData.media.streamType =
-              cast.framework.messages.StreamType.LIVE;
-            loadRequestData.media.contentType = "application/x-mpegurl";
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              cast.framework.messages.StreamingProtocolType.UNKNOWN +
+                "/" +
+                cast.framework.messages.StreamingProtocolType.MPEG_DASH +
+                "/" +
+                cast.framework.messages.StreamingProtocolType.HLS +
+                "/" +
+                cast.framework.messages.StreamingProtocolType.SMOOTH_STREAMING
+            );
+
+            // loadRequestData.media.streamType =
+            //   cast.framework.messages.StreamType.LIVE;
+            // loadRequestData.media.contentType = "application/x-mpegurl";
 
             // loadRequestData.media.contentType = "application/x-mpegurl";
 
@@ -348,7 +359,7 @@ context.start(castReceiverOptions);
 //     hlsSegmentFormat :"AAC" | "AC3" |'MP3'
 //     hlsVideoSegmentFormat : "MPEG2_TS" , "FMP4"
 //     mediaCategory : 'AUDIO', 'VIDEO', 'IMAGE'
-//     streamType : 'BUFFERED', 'LIVE'
+//     streamType : 'BUFFERED',   'LIVE'
 //     metadata : {
 //       metadataType : 'GENERIC', 'MOVIE' ...
 //       posterUrl
