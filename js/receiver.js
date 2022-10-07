@@ -206,10 +206,11 @@ playerManager.setMessageInterceptor(
               mpd: "DASH",
             };
             console.log(streamingProtocolsDict);
-            const streamingProtocol =
-              streamingProtocolsDict[
-                loadRequestData.media.contentUrl.split(".").pop()
-              ];
+            // const streamingProtocol =
+            //   streamingProtocolsDict[
+            //     loadRequestData.media.contentUrl.split(".").pop()
+            //   ];
+            const streamingProtocol = "MP4";
             console.log(streamingProtocol);
             const streamType = loadRequestData.media.streamType;
             console.log(streamType);
@@ -245,9 +246,6 @@ playerManager.setMessageInterceptor(
 
             if (streamType === cast.framework.messages.StreamType.LIVE) {
               switch (streamingProtocol) {
-                case "MP4":
-                  //에러 발생
-                  break;
                 case "HLS":
                   loadRequestData.media.duration = -1;
                   loadRequestData.media.contentType =
@@ -265,30 +263,6 @@ playerManager.setMessageInterceptor(
               }
             }
 
-            // loadRequestData.media.streamType =
-            //   cast.framework.messages.StreamType.LIVE;
-            // loadRequestData.media.contentType = "application/x-mpegurl";
-
-            // loadRequestData.media.contentType = "application/x-mpegurl";
-
-            // loadRequestData.media.hlsSegmentFormat =
-            //   cast.framework.messages.HlsSegmentFormat.TS;
-            // loadRequestData.media.hlsVideoSegmentFormat =
-            //   cast.framework.messages.HlsVideoSegmentFormat.MPEG2_TS;
-
-            // let metadata = new cast.framework.messages.GenericMediaMetadata();
-            // metadata.images = [
-            //   new cast.framework.messages.Image("res/symbol.png"),
-            // ];
-            // //metadata.releaseDate = "releaseDate";
-            // //metadata.releaseYear = 2022;
-            // metadata.subtitle = "subtitle";
-            // metadata.title = "title";
-            // loadRequestData.media.metadata = metadata;
-            // loadRequestData.autoplay = false;
-
-            // loadRequestData.media.hlsSegmentFormat =
-            //   cast.framework.messages.HlsSegmentFormat.TS;
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
               "final loadRequestData : \n" + loadRequestData
@@ -405,50 +379,3 @@ playerDataBinder.addEventListener(
 );
 
 context.start(castReceiverOptions);
-
-// loadRequestData :{
-//   autoplay,
-//   currentTime,
-//   media : {
-//     contentId
-//     contentUrl
-//     hlsSegmentFormat :"AAC" | "AC3" |'MP3'
-//     hlsVideoSegmentFormat : "MPEG2_TS" , "FMP4"
-//     mediaCategory : 'AUDIO', 'VIDEO', 'IMAGE'
-//     streamType : 'BUFFERED',   'LIVE'
-//     metadata : {
-//       metadataType : 'GENERIC', 'MOVIE' ...
-//       posterUrl
-
-//       queueItemId,
-//       sectionDuration,
-//       sectionStartAbsoluteTime,
-//       sectionStartTimeInContainer,
-//       sectionStartTimeInMedia,
-//     }
-
-//     entity
-//     contentType
-//     breakClips
-//     breaks
-//     customData
-//     duration
-//     startAbsoluteTime
-//     textTrackStyle
-//     tracks
-//     userActionStates
-//     vmapAdsRequest
-//   }
-
-//   loadOptions,
-//   activeTrackIds,
-//   credentials,
-//   credentialsType,
-//   customData,
-//   mediaSessionId,
-//   playbackRate,
-//   queueData,
-//   requestId,
-//   sequenceNumber,
-
-// }
