@@ -199,30 +199,28 @@ playerManager.setMessageInterceptor(
               LOG_RECEIVER_TAG,
               "Interceptor received full URL"
             );
+            loadRequestData.media.contentUrl = source;
+
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
-              "final loadRequestData : \n" + loadRequestData
+              `loadRequestData: ${JSON.stringify(loadRequestData)}`
             );
-            loadRequestData.media.contentUrl = source;
+
             const streamingProtocolsDict = {
               mp4: "MP4",
               m3u8: "HLS",
               mpd: "DASH",
             };
-            console.log(streamingProtocolsDict);
             // const streamingProtocol =
             //   streamingProtocolsDict[
             //     loadRequestData.media.contentUrl.split(".").pop()
             //   ];
             const streamingProtocol = "MP4";
-            console.log(streamingProtocol);
             const streamType = loadRequestData.media.streamType;
-            console.log(streamType);
 
             const TS = cast.framework.media.messages.HlsSegmentFormat.TS;
             const MPEG2_TS =
               cast.framework.media.messages.HlsVideoSegmentFormat.MPEG2_TS;
-            console.log(TS, MPEG2_TS);
 
             const contentTypeDict = {
               HLS: "application/x-mpegurl",
@@ -230,7 +228,7 @@ playerManager.setMessageInterceptor(
             };
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
-              "final loadRequestData : \n" + loadRequestData
+              `loadRequestData: ${JSON.stringify(loadRequestData)}`
             );
 
             if (streamType === cast.framework.messages.StreamType.BUFFERED) {
@@ -254,7 +252,7 @@ playerManager.setMessageInterceptor(
 
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
-              "final loadRequestData : \n" + loadRequestData
+              `loadRequestData: ${JSON.stringify(loadRequestData)}`
             );
             if (streamType === cast.framework.messages.StreamType.LIVE) {
               switch (streamingProtocol) {
@@ -277,7 +275,7 @@ playerManager.setMessageInterceptor(
 
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
-              "final loadRequestData : \n" + loadRequestData
+              `loadRequestData: ${JSON.stringify(loadRequestData)}`
             );
             return loadRequestData;
           } else {
