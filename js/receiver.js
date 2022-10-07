@@ -201,16 +201,66 @@ playerManager.setMessageInterceptor(
             );
             loadRequestData.media.contentUrl = source;
 
-            castDebugLogger.debug(
-              LOG_RECEIVER_TAG,
-              cast.framework.messages.StreamingProtocolType.UNKNOWN +
-                "/" +
-                cast.framework.messages.StreamingProtocolType.MPEG_DASH +
-                "/" +
-                cast.framework.messages.StreamingProtocolType.HLS +
-                "/" +
-                cast.framework.messages.StreamingProtocolType.SMOOTH_STREAMING
-            );
+            const streamingProtocolsDict = {
+              mp4: "MP4",
+              m3u8: "HLS",
+              mpd: "DASH",
+            };
+            const streamingProtocol =
+              streamingProtocolsDict[
+                loadRequestData.media.contentUrl.split(".").pop()
+              ];
+            const streamType = loadRequestData.media.streamType;
+
+            const TS = cast.framework.media.messages.HlsSegmentFormat.TS;
+            const MPEG2_TS =
+              cast.framework.media.messages.HlsVideoSegmentFormat.MPEG2_TS;
+
+            const contentTypeDict = {
+              HLS: "application/x-mpegurl",
+              DASH: "application/dash+xml",
+            };
+
+            if (streamType === cast.framework.messages.StreamType.BUFFERED) {
+              switch (streamingProtocol) {
+                case "MP4":
+                  break;
+                case "HLS":
+                  loadRequestData.media.contentType =
+                    contentTypeDict[streamingProtocol];
+                  loadRequestData.media.hlsSegmentFormat =
+                    loadRequestData.media.hlsSegmentFormat | TS;
+                  loadRequestData.media.hlsVideoSegmentFormat =
+                    loadRequestData.media.hlsVideoSegmentFormat | MPEG2_TS;
+                  break;
+                case "DASH":
+                  loadRequestData.media.contentType =
+                    contentTypeDict[streamingProtocol];
+                  break;
+              }
+            }
+
+            if (streamType === cast.framework.messages.StreamType.LIVE) {
+              switch (streamingProtocol) {
+                case "MP4":
+                  //에러 발생
+                  break;
+                case "HLS":
+                  loadRequestData.media.duration = -1;
+                  loadRequestData.media.contentType =
+                    contentTypeDict[streamingProtocol];
+                  loadRequestData.media.hlsSegmentFormat =
+                    loadRequestData.media.hlsSegmentFormat | TS;
+                  loadRequestData.media.hlsVideoSegmentFormat =
+                    loadRequestData.media.hlsVideoSegmentFormat | MPEG2_TS;
+                  break;
+                case "DASH":
+                  loadRequestData.media.duration = -1;
+                  loadRequestData.media.contentType =
+                    contentTypeDict[streamingProtocol];
+                  break;
+              }
+            }
 
             // loadRequestData.media.streamType =
             //   cast.framework.messages.StreamType.LIVE;
@@ -236,7 +286,10 @@ playerManager.setMessageInterceptor(
 
             // loadRequestData.media.hlsSegmentFormat =
             //   cast.framework.messages.HlsSegmentFormat.TS;
-
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              "final loadRequestData : \n" + loadRequestData
+            );
             return loadRequestData;
           } else {
             // Fetch the contentUrl if provided an ID or entity URL.
