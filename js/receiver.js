@@ -199,6 +199,10 @@ playerManager.setMessageInterceptor(
               LOG_RECEIVER_TAG,
               "Interceptor received full URL"
             );
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              "final loadRequestData : \n" + loadRequestData
+            );
             loadRequestData.media.contentUrl = source;
             const streamingProtocolsDict = {
               mp4: "MP4",
@@ -224,6 +228,10 @@ playerManager.setMessageInterceptor(
               HLS: "application/x-mpegurl",
               DASH: "application/dash+xml",
             };
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              "final loadRequestData : \n" + loadRequestData
+            );
 
             if (streamType === cast.framework.messages.StreamType.BUFFERED) {
               switch (streamingProtocol) {
@@ -244,6 +252,10 @@ playerManager.setMessageInterceptor(
               }
             }
 
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              "final loadRequestData : \n" + loadRequestData
+            );
             if (streamType === cast.framework.messages.StreamType.LIVE) {
               switch (streamingProtocol) {
                 case "HLS":
