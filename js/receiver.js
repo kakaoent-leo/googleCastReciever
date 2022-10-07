@@ -206,72 +206,72 @@ playerManager.setMessageInterceptor(
               `loadRequestData: ${JSON.stringify(loadRequestData)}`
             );
 
-            const streamingProtocolsDict = {
-              mp4: "MP4",
-              m3u8: "HLS",
-              mpd: "DASH",
-            };
-            // const streamingProtocol =
-            //   streamingProtocolsDict[
-            //     loadRequestData.media.contentUrl.split(".").pop()
-            //   ];
-            const streamingProtocol = "MP4";
-            const streamType = loadRequestData.media.streamType;
+            // const streamingProtocolsDict = {
+            //   mp4: "MP4",
+            //   m3u8: "HLS",
+            //   mpd: "DASH",
+            // };
+            // // const streamingProtocol =
+            // //   streamingProtocolsDict[
+            // //     loadRequestData.media.contentUrl.split(".").pop()
+            // //   ];
+            // const streamingProtocol = "MP4";
+            // const streamType = loadRequestData.media.streamType;
 
-            const TS = cast.framework.media.messages.HlsSegmentFormat.TS;
-            const MPEG2_TS =
-              cast.framework.media.messages.HlsVideoSegmentFormat.MPEG2_TS;
+            // const TS = cast.framework.media.messages.HlsSegmentFormat.TS;
+            // const MPEG2_TS =
+            //   cast.framework.media.messages.HlsVideoSegmentFormat.MPEG2_TS;
 
-            const contentTypeDict = {
-              HLS: "application/x-mpegurl",
-              DASH: "application/dash+xml",
-            };
-            castDebugLogger.debug(
-              LOG_RECEIVER_TAG,
-              `loadRequestData: ${JSON.stringify(loadRequestData)}`
-            );
+            // const contentTypeDict = {
+            //   HLS: "application/x-mpegurl",
+            //   DASH: "application/dash+xml",
+            // };
+            // castDebugLogger.debug(
+            //   LOG_RECEIVER_TAG,
+            //   `loadRequestData: ${JSON.stringify(loadRequestData)}`
+            // );
 
-            if (streamType === cast.framework.messages.StreamType.BUFFERED) {
-              switch (streamingProtocol) {
-                case "MP4":
-                  break;
-                case "HLS":
-                  loadRequestData.media.contentType =
-                    contentTypeDict[streamingProtocol];
-                  loadRequestData.media.hlsSegmentFormat =
-                    loadRequestData.media.hlsSegmentFormat | TS;
-                  loadRequestData.media.hlsVideoSegmentFormat =
-                    loadRequestData.media.hlsVideoSegmentFormat | MPEG2_TS;
-                  break;
-                case "DASH":
-                  loadRequestData.media.contentType =
-                    contentTypeDict[streamingProtocol];
-                  break;
-              }
-            }
+            // if (streamType === cast.framework.messages.StreamType.BUFFERED) {
+            //   switch (streamingProtocol) {
+            //     case "MP4":
+            //       break;
+            //     case "HLS":
+            //       loadRequestData.media.contentType =
+            //         contentTypeDict[streamingProtocol];
+            //       loadRequestData.media.hlsSegmentFormat =
+            //         loadRequestData.media.hlsSegmentFormat | TS;
+            //       loadRequestData.media.hlsVideoSegmentFormat =
+            //         loadRequestData.media.hlsVideoSegmentFormat | MPEG2_TS;
+            //       break;
+            //     case "DASH":
+            //       loadRequestData.media.contentType =
+            //         contentTypeDict[streamingProtocol];
+            //       break;
+            //   }
+            // }
 
-            castDebugLogger.debug(
-              LOG_RECEIVER_TAG,
-              `loadRequestData: ${JSON.stringify(loadRequestData)}`
-            );
-            if (streamType === cast.framework.messages.StreamType.LIVE) {
-              switch (streamingProtocol) {
-                case "HLS":
-                  loadRequestData.media.duration = -1;
-                  loadRequestData.media.contentType =
-                    contentTypeDict[streamingProtocol];
-                  loadRequestData.media.hlsSegmentFormat =
-                    loadRequestData.media.hlsSegmentFormat | TS;
-                  loadRequestData.media.hlsVideoSegmentFormat =
-                    loadRequestData.media.hlsVideoSegmentFormat | MPEG2_TS;
-                  break;
-                case "DASH":
-                  loadRequestData.media.duration = -1;
-                  loadRequestData.media.contentType =
-                    contentTypeDict[streamingProtocol];
-                  break;
-              }
-            }
+            // castDebugLogger.debug(
+            //   LOG_RECEIVER_TAG,
+            //   `loadRequestData: ${JSON.stringify(loadRequestData)}`
+            // );
+            // if (streamType === cast.framework.messages.StreamType.LIVE) {
+            //   switch (streamingProtocol) {
+            //     case "HLS":
+            //       loadRequestData.media.duration = -1;
+            //       loadRequestData.media.contentType =
+            //         contentTypeDict[streamingProtocol];
+            //       loadRequestData.media.hlsSegmentFormat =
+            //         loadRequestData.media.hlsSegmentFormat | TS;
+            //       loadRequestData.media.hlsVideoSegmentFormat =
+            //         loadRequestData.media.hlsVideoSegmentFormat | MPEG2_TS;
+            //       break;
+            //     case "DASH":
+            //       loadRequestData.media.duration = -1;
+            //       loadRequestData.media.contentType =
+            //         contentTypeDict[streamingProtocol];
+            //       break;
+            //   }
+            // }
 
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
