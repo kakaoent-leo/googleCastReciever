@@ -211,20 +211,41 @@ playerManager.setMessageInterceptor(
               m3u8: "HLS",
               mpd: "DASH",
             };
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              `streamingProtocolsDict: ${streamingProtocolsDict}`
+            );
+
             const streamingProtocol =
               streamingProtocolsDict[
                 loadRequestData.media.contentUrl.split(".").pop()
               ];
-            const streamType = loadRequestData.media.streamType;
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              `streamingProtocol: ${streamingProtocol}`
+            );
 
+            const streamType = loadRequestData.media.streamType;
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              `streamType: ${streamType}`
+            );
             const TS = cast.framework.media.messages.HlsSegmentFormat.TS;
+            castDebugLogger.debug(LOG_RECEIVER_TAG, `TS: ${TS}`);
+
             const MPEG2_TS =
               cast.framework.media.messages.HlsVideoSegmentFormat.MPEG2_TS;
 
+            castDebugLogger.debug(LOG_RECEIVER_TAG, `MPEG2_TS: ${MPEG2_TS}`);
             const contentTypeDict = {
               HLS: "application/x-mpegurl",
               DASH: "application/dash+xml",
             };
+            castDebugLogger.debug(
+              LOG_RECEIVER_TAG,
+              `contentTypeDict: ${contentTypeDict}`
+            );
+
             castDebugLogger.debug(
               LOG_RECEIVER_TAG,
               `loadRequestData: ${JSON.stringify(loadRequestData)}`
