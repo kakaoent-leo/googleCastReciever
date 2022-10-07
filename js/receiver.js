@@ -200,21 +200,24 @@ playerManager.setMessageInterceptor(
               "Interceptor received full URL"
             );
             loadRequestData.media.contentUrl = source;
-
             const streamingProtocolsDict = {
               mp4: "MP4",
               m3u8: "HLS",
               mpd: "DASH",
             };
+            console.log(streamingProtocolsDict);
             const streamingProtocol =
               streamingProtocolsDict[
                 loadRequestData.media.contentUrl.split(".").pop()
               ];
+            console.log(streamingProtocol);
             const streamType = loadRequestData.media.streamType;
+            console.log(streamType);
 
             const TS = cast.framework.media.messages.HlsSegmentFormat.TS;
             const MPEG2_TS =
               cast.framework.media.messages.HlsVideoSegmentFormat.MPEG2_TS;
+            console.log(TS, MPEG2_TS);
 
             const contentTypeDict = {
               HLS: "application/x-mpegurl",
