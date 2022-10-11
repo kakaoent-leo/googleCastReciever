@@ -259,6 +259,15 @@ playerManager.setMessageInterceptor(
                 case "HLS":
                   loadRequestData.media.contentType =
                     contentTypeDict[streamingProtocol];
+                  castDebugLogger.debug(
+                    LOG_RECEIVER_TAG,
+                    `loadRequestData.media.hlsSegmentFormat: ${loadRequestData.media.hlsSegmentFormat}`
+                  );
+                  castDebugLogger.debug(
+                    LOG_RECEIVER_TAG,
+                    `loadRequestData.media.hlsVideoSegmentFormat: ${loadRequestData.media.hlsVideoSegmentFormat}`
+                  );
+
                   loadRequestData.media.hlsSegmentFormat =
                     loadRequestData.media.hlsSegmentFormat || TS;
                   loadRequestData.media.hlsVideoSegmentFormat =
@@ -277,6 +286,8 @@ playerManager.setMessageInterceptor(
             );
             if (streamType === cast.framework.messages.StreamType.LIVE) {
               switch (streamingProtocol) {
+                case "MP4":
+                  break;
                 case "HLS":
                   loadRequestData.media.duration = -1;
                   loadRequestData.media.contentType =
