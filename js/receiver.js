@@ -254,11 +254,6 @@ playerManager.setMessageInterceptor(
                   break;
               }
             }
-
-            castDebugLogger.debug(
-              LOG_RECEIVER_TAG,
-              `loadRequestData: ${JSON.stringify(loadRequestData)}`
-            );
             return loadRequestData;
           } else {
             // Fetch the contentUrl if provided an ID or entity URL.
