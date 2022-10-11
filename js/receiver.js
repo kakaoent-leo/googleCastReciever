@@ -268,10 +268,10 @@ playerManager.setMessageInterceptor(
                     `loadRequestData.media.hlsVideoSegmentFormat: ${loadRequestData.media.hlsVideoSegmentFormat}`
                   );
 
-                  loadRequestData.media.hlsSegmentFormat =
-                    loadRequestData.media.hlsSegmentFormat || TS;
-                  loadRequestData.media.hlsVideoSegmentFormat =
-                    loadRequestData.media.hlsVideoSegmentFormat || MPEG2_TS;
+                  // loadRequestData.media.hlsSegmentFormat =
+                  //   loadRequestData.media.hlsSegmentFormat || TS;
+                  // loadRequestData.media.hlsVideoSegmentFormat =
+                  //   loadRequestData.media.hlsVideoSegmentFormat || MPEG2_TS;
                   break;
                 case "DASH":
                   loadRequestData.media.contentType =
@@ -292,10 +292,10 @@ playerManager.setMessageInterceptor(
                   loadRequestData.media.duration = -1;
                   loadRequestData.media.contentType =
                     contentTypeDict[streamingProtocol];
-                  loadRequestData.media.hlsSegmentFormat =
-                    loadRequestData.media.hlsSegmentFormat || TS;
-                  loadRequestData.media.hlsVideoSegmentFormat =
-                    loadRequestData.media.hlsVideoSegmentFormat || MPEG2_TS;
+                  // loadRequestData.media.hlsSegmentFormat =
+                  //   loadRequestData.media.hlsSegmentFormat || TS;
+                  // loadRequestData.media.hlsVideoSegmentFormat =
+                  //   loadRequestData.media.hlsVideoSegmentFormat || MPEG2_TS;
                   break;
                 case "DASH":
                   loadRequestData.media.duration = -1;
