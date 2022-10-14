@@ -346,26 +346,53 @@ castReceiverOptions.supportedCommands =
 const playerData = {};
 const playerDataBinder = new cast.framework.ui.PlayerDataBinder(playerData);
 
+// playerDataBinder.addEventListener(
+//   cast.framework.ui.PlayerDataEventType.STATE_CHANGED,
+//   (e) => {
+//     switch (e.value) {
+//       case cast.framework.ui.State.LAUNCHING:
+//       case cast.framework.ui.State.IDLE:
+//         // Write your own event handling code
+//         break;
+//       case cast.framework.ui.State.LOADING:
+//         // Write your own event handling code
+//         break;
+//       case cast.framework.ui.State.BUFFERING:
+//         // Write your own event handling code
+//         break;
+//       case cast.framework.ui.State.PAUSED:
+//         // Write your own event handling code
+//         break;
+//       case cast.framework.ui.State.PLAYING:
+//         // Write your own event handling code
+//         break;
+//     }
+//   }
+// );
+
 playerDataBinder.addEventListener(
   cast.framework.ui.PlayerDataEventType.STATE_CHANGED,
   (e) => {
     switch (e.value) {
       case cast.framework.ui.State.LAUNCHING:
+        document.getElementById("label").innerHTML = "Launching";
       case cast.framework.ui.State.IDLE:
-        // Write your own event handling code
+        document.getElementById("label").innerHTML = "Idle";
         break;
       case cast.framework.ui.State.LOADING:
-        // Write your own event handling code
+        document.getElementById("label").innerHTML = "Loading";
         break;
       case cast.framework.ui.State.BUFFERING:
-        // Write your own event handling code
+        document.getElementById("label").innerHTML = "Buffering";
         break;
       case cast.framework.ui.State.PAUSED:
-        // Write your own event handling code
+        document.getElementById("label").innerHTML = "Paused";
         break;
       case cast.framework.ui.State.PLAYING:
-        // Write your own event handling code
+        document.getElementById("label").innerHTML = "Playing";
         break;
+      default:
+        document.getElementById("label").innerHTML = "Default state";
     }
   }
 );
