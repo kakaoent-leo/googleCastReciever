@@ -1,0 +1,38 @@
+name : deploy-cicd-gcp
+description : it is deploy-cicd-gcp
+
+inputs :
+  SERVICE_NAME :
+    required : true
+  REPO:
+      required: false
+      default: leo-receiver-repo
+  PROJECT_ID:
+      required: false
+      default: GCP-Infra
+  REGION:
+      required: false
+      default: asia-northeast3
+  GAR_LOCATION:
+      required: false
+      default: asia
+  SA:
+      required: false
+      default: leo.ee@kakaoent.com
+  GCP_CREDENTIALS:
+      required: true
+
+outputs :
+  cloud_run_url:
+    value : ${{steps.deploy.outputs.url}}
+    description : cloud run deploy url
+
+runs :
+  using : composite
+  steps :
+    - name : deploy to cloud run
+    id : deploy
+    uses : google-github-actions/deploy-cloudrun@v0
+    with :
+      
+
